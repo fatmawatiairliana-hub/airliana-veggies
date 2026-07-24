@@ -1,0 +1,46 @@
+body {
+    font-family: sans-serif;
+    background: #f1f8e9;
+    margin: 0;
+}
+
+nav {
+    background: #2e7d32;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px;
+    background: url('https://source.unsplash.com/1200x500/?vegetables') no-repeat center;
+    color: white;
+}
+
+.btn {
+    background: #66bb6a;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.produk {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
