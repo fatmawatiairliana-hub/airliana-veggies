@@ -67,3 +67,45 @@ nav a {
     color: white;
     border-radius: 5px;
 }
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: #f1f8e9;
+}
+
+/* NAVBAR */
+nav {
+    background: #2e7d32;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h2 {
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(to right, #66bb6a, #43a047);
+    color: white;
+}
+
+.hero h1 {
+    font-size: 36px;
+}
