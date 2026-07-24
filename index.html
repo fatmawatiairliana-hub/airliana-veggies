@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>AirLiana Veggies</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: #f1f8e9;
+}
+
+/* NAVBAR */
+nav {
+    background: #2e7d32;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(90deg, #66bb6a, #2e7d32);
+    color: white;
+}
+
+/* CONTAINER */
+.container {
+    padding: 20px;
+}
+
+/* GRID */
+.produk {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* BADGE */
+.diskon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: red;
+    color: white;
+    padding: 5px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.best {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: orange;
+    color: white;
+    padding: 5px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+/* IMAGE */
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* HARGA */
+.harga-asli {
+    text-decoration: line-through;
+    color: gray;
+}
+.harga-diskon {
+    color: #2e7d32;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px;
+    background: #43a047;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+.btn:hover {
+    background: #2e7d32;
+}
+
+/* PAKET */
+.paket {
+    margin-top: 40px;
+    background: #c8e6c9;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 30px;
+    background: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div><b>🥬 AirLiana Veggies</b></div>
+    <div>
+        <a href="#">Home</a>
+        <a href="#">Produk</a>
+        <a href="#">Promo</a>
+        <a href="#">Kontak</a>
+    </div>
+</nav>
+
+<!-- HEADER -->
+<header>
+    <h1>AirLiana Veggies</h1>
+    <p>Sayur Segar Langsung dari Petani 🌱</p>
+</header>
+
+<div class="container">
+
+<h2>🔥 Promo Hari Ini</h2>
+
+<div class="produk">
+
+    <div class="card">
+        <div class="diskon">-20%</div>
+        <div class="best">Best Seller</div>
+        <img src="https://via.placeholder.com/200">
+        <h3>Bayam Segar</h3>
+        <p class="harga-asli">Rp 5.000</p>
+        <p class="harga-diskon">Rp 4.000</p>
+        <p>⭐ 4.8</p>
+        <a href="https://wa.me/6281234567890" class="btn">Beli</a>
+    </div>
+
+    <div class="card">
+        <div class="diskon">-25%</div>
+        <img src="https://via.placeholder.com/200">
+        <h3>Kangkung</h3>
+        <p class="harga-asli">Rp 4.000</p>
+        <p class="harga-diskon">Rp 3.000</p>
+        <p>⭐ 4.7</p>
+        <a href="https://wa.me/6281234567890" class="btn">Beli</a>
+    </div>
+
+    <div class="card">
+        <div class="diskon">-15%</div>
+        <img src="https://via.placeholder.com/200">
+        <h3>Wortel</h3>
+        <p class="harga-asli">Rp 8.000</p>
+        <p class="harga-diskon">Rp 6.800</p>
+        <p>⭐ 4.9</p>
+        <a href="https://wa.me/6281234567890" class="btn">Beli</a>
+    </div>
+
+    <div class="card">
+        <div class="diskon">-10%</div>
+        <img src="https://via.placeholder.com/200">
+        <h3>Tomat</h3>
+        <p class="harga-asli">Rp 7.000</p>
+        <p class="harga-diskon">Rp 6.300</p>
+        <p>⭐ 4.6</p>
+        <a href="https://wa.me/6281234567890" class="btn">Beli</a>
+    </div>
+
+</div>
+
+<!-- PAKET -->
+<div class="paket">
+    <h2>📦 Paket Hemat AirLiana</h2>
+    <p>Bayam + Kangkung + Wortel + Tomat</p>
+    <p class="harga-asli">Rp 25.000</p>
+    <h2 style="color:#1b5e20;">Rp 18.000</h2>
+    <p>🔥 Hemat 28%</p>
+    <a href="https://wa.me/6281234567890" class="btn">Ambil Paket</a>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>📍 AirLiana Veggies</p>
+    <p>Pesan via WhatsApp: 081234567890</p>
+    <p>© 2026 AirLiana Veggies</p>
+</footer>
+
+</body>
+</html>
