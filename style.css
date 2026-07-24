@@ -44,3 +44,26 @@ nav a {
     border-radius: 10px;
     text-align: center;
 }
+.item {
+    background: white;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.qty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.qty button {
+    padding: 5px 10px;
+    border: none;
+    background: #2e7d32;
+    color: white;
+    border-radius: 5px;
+}
