@@ -41,10 +41,17 @@
 
 <a href="#promo">🎉 Promo</a>
 
-<a href="keranjang.html">🛍 Keranjang</a>
+<a href="keranjang.html">
+🛍 Keranjang
+<span id="badgeKeranjang"></span>
+</a>
 
 <a href="kontak.html">📞 Kontak</a>
-
+  
+<button class="menu-toggle">
+☰
+</button>
+  
 </nav>
 
 
@@ -143,7 +150,7 @@ Belanja Sekarang
 
 
 
-<div class="card">
+<div class="card produk">
 
 <img src="assets/images/bayam.jpg">
 
@@ -153,14 +160,16 @@ Belanja Sekarang
 
 <p>⭐⭐⭐⭐⭐</p>
 
-<button>+ Keranjang</button>
+<button onclick="tambahKeranjang('Bayam Hijau',7000)">
++ Keranjang
+</button>
 
 </div>
 
 
 
 
-<div class="card">
+<div class="card produk">
 
 <img src="assets/images/kangkung.jpg">
 
@@ -170,14 +179,16 @@ Belanja Sekarang
 
 <p>⭐⭐⭐⭐⭐</p>
 
-<button>+ Keranjang</button>
+<button onclick="tambahKeranjang('Kangkung',6000)">
++ Keranjang
+</button>
 
 </div>
 
 
 
 
-<div class="card">
+<div class="card produk">
 
 <img src="assets/images/wortel.jpg">
 
@@ -187,14 +198,16 @@ Belanja Sekarang
 
 <p>⭐⭐⭐⭐⭐</p>
 
-<button>+ Keranjang</button>
+<button onclick="tambahKeranjang('Wortel',15000)">
++ Keranjang
+</button>
 
 </div>
 
 
 
 
-<div class="card">
+<div class="card produk">
 
 <img src="assets/images/tomat.jpg">
 
@@ -204,7 +217,9 @@ Belanja Sekarang
 
 <p>⭐⭐⭐⭐⭐</p>
 
-<button>+ Keranjang</button>
+<button onclick="tambahKeranjang('Tomat',10000)">
++ Keranjang
+</button>
 
 </div>
 
@@ -212,7 +227,7 @@ Belanja Sekarang
 
 
 
-<div class="card">
+<div class="card produk">
 
 <img src="assets/images/brokoli.jpg">
 
@@ -222,14 +237,16 @@ Belanja Sekarang
 
 <p>⭐⭐⭐⭐⭐</p>
 
-<button>+ Keranjang</button>
+<button onclick="tambahKeranjang('Brokoli',30000)">
++ Keranjang
+</button>
 
 </div>
 
 
 
 
-<div class="card">
+<div class="card produk">
 
 <img src="assets/images/pakcoy.jpg">
 
@@ -239,14 +256,15 @@ Belanja Sekarang
 
 <p>⭐⭐⭐⭐⭐</p>
 
-<button>+ Keranjang</button>
+<button onclick="tambahKeranjang('Pakcoy',9000)">
++ Keranjang
+</button>
 
 </div>
 
 
 
-
-<div class="card">
+<div class="card produk">
 
 <img src="assets/images/sawi.jpg">
 
@@ -256,14 +274,16 @@ Belanja Sekarang
 
 <p>⭐⭐⭐⭐⭐</p>
 
-<button>+ Keranjang</button>
+<button onclick="tambahKeranjang('Sawi Hijau',8000)">
++ Keranjang
+</button>
 
 </div>
 
 
 
 
-<div class="card">
+<div class="card produk">
 
 <img src="assets/images/selada.jpg">
 
@@ -273,7 +293,9 @@ Belanja Sekarang
 
 <p>⭐⭐⭐⭐⭐</p>
 
-<button>+ Keranjang</button>
+<button onclick="tambahKeranjang('Selada',12000)">
++ Keranjang
+</button>
 
 </div>
 
@@ -484,6 +506,12 @@ Pesan Sekarang
 
 
 <h2>🎉 Promo Hari Ini</h2>
+
+<h3 style="text-align:center;">
+⏰ Flash Sale Berakhir Dalam
+</h3>
+
+<h2 id="countdown" style="text-align:center;color:red;"></h2>
 
 
 <div class="promo">
