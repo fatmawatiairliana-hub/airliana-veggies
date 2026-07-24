@@ -1,48 +1,931 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>AirLiana Veggies</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirLiana Veggies | Sayuran Segar Berkualitas</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
+<!-- ================= NAVBAR ================= -->
+    
+<header class="navbar">
+
+<div class="logo">
+🥬 <span>AirLiana Veggies</span>
+</div>
+
 <nav>
-    <h2>🥬 AirLiana Veggies</h2>
-    <div>
-        <a href="index.html">Home</a>
-        <a href="produk.html">Produk</a>
-        <a href="keranjang.html">Keranjang</a>
-        <a href="kontak.html">Kontak</a>
-    </div>
+
+<a href="index.html">🏠 Beranda</a>
+
+<a href="#kategori">🥬 Kategori</a>
+
+<a href="produk.html">🛒 Produk</a>
+
+<a href="#terlaris">🔥 Terlaris</a>
+
+<a href="#paket">🥗 Paket Sayur</a>
+
+<a href="#promo">🎉 Promo</a>
+
+<a href="keranjang.html">🛍 Keranjang</a>
+
+<a href="kontak.html">📞 Kontak</a>
+
 </nav>
 
-<header class="hero">
-    <h1>Sayur Segar Langsung ke Rumahmu 🌿</h1>
-    <p>Sehat • Fresh • Harga Terjangkau</p>
-    <a href="produk.html" class="btn">Belanja Sekarang</a>
+<div class="search">
+
+<input type="text" placeholder="Cari sayuran segar...">
+
+<button>🔍</button>
+
+</div>
+
 </header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<h1>🥬 Sayuran Segar Langsung dari Petani</h1>
+
+<p>
+Belanja sayuran segar, higienis, dan berkualitas dengan harga terbaik.
+</p>
+
+<a href="produk.html" class="btn">
+Belanja Sekarang
+</a>
+
+</section>
+
+<!-- ================= KATEGORI ================= -->
+
+<section id="kategori" class="kategori">
+
+<h2>Kategori Produk</h2>
+
+<div class="kategori-grid">
+
+<div>🥬 Sayuran Daun</div>
+
+<div>🥕 Umbi</div>
+
+<div>🥦 Brokoli</div>
+
+<div>🍅 Sayuran Buah</div>
+
+<div>🌶 Cabai</div>
+
+<div>🧅 Bumbu</div>
+
+<div>🍄 Jamur</div>
+
+<div>🥗 Paket Sayur</div>
+
+</div>
+
+</section>
+
+<section id="terlaris" class="produk">
+
+<h2>Produk Terlaris</h2>
+
+<div class="produk-grid">
+
+<div class="card">
+
+<img src="assets/images/bayam.jpg">
+
+<h3>Bayam Hijau</h3>
+
+<p>Rp7.000 / ikat</p>
+
+⭐⭐⭐⭐⭐
+
+<button>+ Keranjang</button>
+
+</div>
+
+<div class="card">
+
+<img src="assets/images/kangkung.jpg">
+
+<h3>Kangkung</h3>
+
+<p>Rp6.000 / ikat</p>
+
+⭐⭐⭐⭐⭐
+
+<button>+ Keranjang</button>
+
+</div>
+
+<div class="card">
+
+<img src="assets/images/wortel.jpg">
+
+<h3>Wortel</h3>
+
+<p>Rp15.000 / kg</p>
+
+⭐⭐⭐⭐⭐
+
+<button>+ Keranjang</button>
+
+</div>
+
+<div class="card">
+
+<img src="assets/images/tomat.jpg">
+
+<h3>Tomat</h3>
+
+<p>Rp10.000 / kg</p>
+
+⭐⭐⭐⭐⭐
+
+<button>+ Keranjang</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= PAKET SAYUR ================= -->
+
+<section id="paket" class="paket">
+
+<h2>🥗 Paket Sayuran</h2>
+
+<div class="produk-grid">
+
+<div class="card">
+
+<img src="assets/images/paket-sop.jpg">
+
+<h3>Paket Sayur Sop</h3>
+
+<p>Isi:</p>
+
+<ul>
+
+<li>🥕 Wortel</li>
+
+<li>🥔 Kentang</li>
+
+<li>🥬 Kol</li>
+
+<li>🌿 Seledri</li>
+
+</ul>
+
+<h4>Rp38.000</h4>
+
+<button>Pesan Sekarang</button>
+
+</div>
+
+</div>
+
+</section>
+
+    <section class="best">
+
+<h2>🔥 Best Seller</h2>
+
+<div class="best-grid">
+
+<div class="card">
+
+🥬
+
+<h3>Bayam Hijau</h3>
+
+<p>Terjual 1.500+</p>
+
+</div>
+
+<div class="card">
+
+🥦
+
+<h3>Brokoli</h3>
+
+<p>Terjual 980+</p>
+
+</div>
+
+<div class="card">
+
+🥕
+
+<h3>Wortel</h3>
+
+<p>Terjual 2.300+</p>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- ================= PROMO ================= -->
+
+<section id="promo" class="promo">
+
+<h2>🎉 Promo Hari Ini</h2>
+
+<div class="promo-box">
+
+<h3>Diskon 20%</h3>
+
+<p>
+Minimal belanja Rp100.000
+</p>
+
+</div>
+
+<div class="promo-box">
+
+<h3>Gratis Ongkir</h3>
+
+<p>
+Wilayah Yogyakarta
+</p>
+
+</div>
+
+<div class="promo-box">
+
+<h3>Cashback</h3>
+
+<p>
+Hingga Rp20.000
+</p>
+
+</div>
+
+    <section id="testimoni">
+
+<h2>⭐ Testimoni Pelanggan</h2>
+
+<div class="card">
+
+⭐⭐⭐⭐⭐
+
+<p>
+
+"Sayurnya segar dan pengiriman cepat."
+
+</p>
+
+<b>- Rina</b>
+
+</div>
+
+<div class="card">
+
+⭐⭐⭐⭐⭐
+
+<p>
+
+"Harga murah, kualitas bagus."
+
+</p>
+
+<b>- Dedi</b>
+
+</div>
+
+</section>
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<h3>AirLiana Veggies</h3>
+
+<p>
+Sayuran Segar • Higienis • Berkualitas
+</p>
+
+<p>
+WhatsApp : 085780620013
+</p>
+
+<p>
+Email : airlianaveggies@gmail.com
+</p>
+
+<p>
+© 2026 AirLiana Veggies
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirLiana Veggies | Sayuran Segar Berkualitas</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+    
+<header class="navbar">
+
+<div class="logo">
+🥬 <span>AirLiana Veggies</span>
+</div>
+
+<nav>
+
+<a href="index.html">🏠 Beranda</a>
+
+<a href="#kategori">🥬 Kategori</a>
+
+<<a href="#terlaris">🛒 Produk</a>
+
+<a href="#terlaris">🔥 Terlaris</a>
+
+<a href="#paket">🥗 Paket Sayur</a>
+
+<a href="#promo">🎉 Promo</a>
+
+<a href="keranjang.html">🛍 Keranjang</a>
+
+<a href="kontak.html">📞 Kontak</a>
+
+</nav>
+
+<div class="search">
+
+<input type="text" placeholder="Cari sayuran segar...">
+
+<button>🔍</button>
+
+</div>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<h1>🥬 Sayuran Segar Langsung dari Petani</h1>
+
+<p>
+Belanja sayuran segar, higienis, dan berkualitas dengan harga terbaik.
+</p>
+
+<a href="#terlaris" class="btn">
+Belanja Sekarang
+</a>
+</div>
+</section>
+
+<!-- ================= KATEGORI ================= -->
+
+<section id="kategori" class="kategori">
+
+<h2>Kategori Produk</h2>
+
+<div class="kategori-grid">
+
+<div>🥬 Sayuran Daun</div>
+
+<div>🥕 Umbi</div>
+
+<div>🥦 Brokoli</div>
+
+<div>🍅 Sayuran Buah</div>
+
+<div>🌶 Cabai</div>
+
+<div>🧅 Bumbu</div>
+
+<div>🍄 Jamur</div>
+
+<div>🥗 Paket Sayur</div>
+
+</div>
+
+</section>
+
+<section id="terlaris" class="produk">
+
+<h2>Produk Terlaris</h2>
+
+<div class="produk-grid">
+
+<div class="card">
+
+<img src="assets/images/bayam.jpg">
+
+<h3>Bayam Hijau</h3>
+
+<p>Rp7.000 / ikat</p>
+
+⭐⭐⭐⭐⭐
+
+<button>+ Keranjang</button>
+
+</div>
+
+<div class="card">
+
+<img src="assets/images/kangkung.jpg">
+
+<h3>Kangkung</h3>
+
+<p>Rp6.000 / ikat</p>
+
+⭐⭐⭐⭐⭐
+
+<button>+ Keranjang</button>
+
+</div>
+
+<div class="card">
+
+<img src="assets/images/wortel.jpg">
+
+<h3>Wortel</h3>
+
+<p>Rp15.000 / kg</p>
+
+⭐⭐⭐⭐⭐
+
+<button>+ Keranjang</button>
+
+</div>
+
+<div class="card">
+
+<img src="assets/images/tomat.jpg">
+
+<h3>Tomat</h3>
+
+<p>Rp10.000 / kg</p>
+
+⭐⭐⭐⭐⭐
+
+<button>+ Keranjang</button>
+
+</div>
+<div class="card">
+<img src="assets/images/brokoli.jpg" alt="Brokoli">
+<h3>Brokoli</h3>
+<p>Rp30.000 / kg</p>
+<p>⭐⭐⭐⭐⭐ (4.9)</p>
+<button>+ Keranjang</button>
+</div>
+
+<div class="card">
+<img src="assets/images/pakcoy.jpg" alt="Pakcoy">
+<h3>Pakcoy</h3>
+<p>Rp9.000 / ikat</p>
+<p>⭐⭐⭐⭐⭐ (4.8)</p>
+<button>+ Keranjang</button>
+</div>
+
+<div class="card">
+<img src="assets/images/sawi.jpg" alt="Sawi Hijau">
+<h3>Sawi Hijau</h3>
+<p>Rp8.000 / ikat</p>
+<p>⭐⭐⭐⭐⭐ (4.9)</p>
+<button>+ Keranjang</button>
+</div>
+
+<div class="card">
+<img src="assets/images/selada.jpg" alt="Selada">
+<h3>Selada Hijau</h3>
+<p>Rp12.000 / buah</p>
+<p>⭐⭐⭐⭐⭐ (4.8)</p>
+<button>+ Keranjang</button>
+</div>
+
+<div class="card">
+<img src="assets/images/kol.jpg" alt="Kol">
+<h3>Kol</h3>
+<p>Rp12.000 / kg</p>
+<p>⭐⭐⭐⭐⭐ (4.7)</p>
+<button>+ Keranjang</button>
+</div>
+
+<div class="card">
+<img src="assets/images/kentang.jpg" alt="Kentang">
+<h3>Kentang</h3>
+<p>Rp18.000 / kg</p>
+<p>⭐⭐⭐⭐⭐ (4.9)</p>
+<button>+ Keranjang</button>
+</div>
+
+<div class="card">
+<img src="assets/images/timun.jpg" alt="Timun">
+<h3>Timun</h3>
+<p>Rp8.000 / kg</p>
+<p>⭐⭐⭐⭐⭐ (4.7)</p>
+<button>+ Keranjang</button>
+</div>
+
+<div class="card">
+<img src="assets/images/terong.jpg" alt="Terong">
+<h3>Terong Ungu</h3>
+<p>Rp14.000 / kg</p>
+<p>⭐⭐⭐⭐⭐ (4.8)</p>
+<button>+ Keranjang</button>
+</div>
+
+<div class="card">
+<img src="assets/images/cabai.jpg" alt="Cabai Merah">
+<h3>Cabai Merah</h3>
+<p>Rp42.000 / kg</p>
+<p>⭐⭐⭐⭐⭐ (4.9)</p>
+<button>+ Keranjang</button>
+</div>
+
+<div class="card">
+<img src="assets/images/bawang-merah.jpg" alt="Bawang Merah">
+<h3>Bawang Merah</h3>
+<p>Rp38.000 / kg</p>
+<p>⭐⭐⭐⭐⭐ (4.9)</p>
+<button>+ Keranjang</button>
+</div>
+
+<div class="card">
+<img src="assets/images/bawang-putih.jpg" alt="Bawang Putih">
+<h3>Bawang Putih</h3>
+<p>Rp35.000 / kg</p>
+<p>⭐⭐⭐⭐⭐ (4.8)</p>
+<button>+ Keranjang</button>
+</div>
+
+<div class="card">
+<img src="assets/images/jamur.jpg" alt="Jamur Tiram">
+<h3>Jamur Tiram</h3>
+<p>Rp18.000 / 250 gr</p>
+<p>⭐⭐⭐⭐⭐ (4.9)</p>
+<button>+ Keranjang</button>
+</div>
+
+<div class="card">
+<img src="assets/images/kembang-kol.jpg" alt="Kembang Kol">
+<h3>Kembang Kol</h3>
+<p>Rp28.000 / kg</p>
+<p>⭐⭐⭐⭐⭐ (4.8)</p>
+<button>+ Keranjang</button>
+</div>
+
+<div class="card">
+<img src="assets/images/labu-siam.jpg" alt="Labu Siam">
+<h3>Labu Siam</h3>
+<p>Rp10.000 / kg</p>
+<p>⭐⭐⭐⭐⭐ (4.8)</p>
+<button>+ Keranjang</button>
+</div>
+
+<div class="card">
+<img src="assets/images/buncis.jpg" alt="Buncis">
+<h3>Buncis</h3>
+<p>Rp16.000 / kg</p>
+<p>⭐⭐⭐⭐⭐ (4.8)</p>
+<button>+ Keranjang</button>
+    
+</div>
+
+</div> <!-- menutup produk-grid -->
+
+</section> <!-- menutup section produk -->
+
+
+<!-- ================= PAKET SAYUR ================= -->
+
+<section id="paket" class="paket">
+
+<h2>🥗 Paket Sayuran</h2>
+
+<div class="produk-grid">
+<div class="card">
+
+<img src="assets/images/paket-capcay.jpg" alt="Paket Capcay">
+
+<h3>Paket Sayur Capcay</h3>
+
+<p>Isi:</p>
+
+<ul>
+<li>🥦 Brokoli</li>
+<li>🥕 Wortel</li>
+<li>🥬 Sawi</li>
+<li>🌽 Jagung Putren</li>
+</ul>
+
+<h4>Rp45.000</h4>
+
+<button>Pesan Sekarang</button>
+
+</div>
+
+<div class="card">
+
+<img src="assets/images/paket-asem.jpg" alt="Paket Sayur Asem">
+
+<h3>Paket Sayur Asem</h3>
+
+<p>Isi:</p>
+
+<ul>
+<li>🌽 Jagung</li>
+<li>🥬 Kacang Panjang</li>
+<li>🥒 Labu Siam</li>
+<li>🍆 Melinjo</li>
+</ul>
+
+<h4>Rp40.000</h4>
+
+<button>Pesan Sekarang</button>
+
+</div>
+
+<div class="card">
+
+<img src="assets/images/paket-lodeh.jpg" alt="Paket Lodeh">
+
+<h3>Paket Sayur Lodeh</h3>
+
+<p>Isi:</p>
+
+<ul>
+<li>🥬 Terong</li>
+<li>🌽 Jagung</li>
+<li>🥒 Labu Siam</li>
+<li>🥬 Kacang Panjang</li>
+</ul>
+
+<h4>Rp42.000</h4>
+
+<button>Pesan Sekarang</button>
+
+</div>
+
+<div class="card">
+
+<img src="assets/images/paket-organik.jpg" alt="Paket Organik">
+
+<h3>Paket Sayur Organik</h3>
+
+<p>Isi:</p>
+
+<ul>
+<li>🥬 Bayam Organik</li>
+<li>🥬 Pakcoy</li>
+<li>🥦 Brokoli</li>
+<li>🥗 Selada</li>
+</ul>
+
+<h4>Rp55.000</h4>
+
+<button>Pesan Sekarang</button>
+
+</div>
+
+<div class="card">
+
+<img src="assets/images/paket-diet.jpg" alt="Paket Diet">
+
+<h3>Paket Diet Sehat</h3>
+
+<p>Isi:</p>
+
+<ul>
+<li>🥗 Selada</li>
+<li>🥒 Timun</li>
+<li>🍅 Tomat</li>
+<li>🥕 Wortel</li>
+</ul>
+
+<h4>Rp48.000</h4>
+
+<button>Pesan Sekarang</button>
+
+</div>
+
+<div class="card">
+
+<img src="assets/images/paket-sop.jpg" alt="Paket Sayur Sop">
+
+<h3>Paket Sayur Sop</h3>
+
+<p>Isi:</p>
+
+<ul>
+
+<li>🥕 Wortel</li>
+
+<li>🥔 Kentang</li>
+
+<li>🥬 Kol</li>
+
+<li>🌿 Seledri</li>
+
+</ul>
+
+<h4>Rp38.000</h4>
+
+<button>Pesan Sekarang</button>
+
+</div>
+
+</div>
+
+</section>
+
+    <section class="best">
+
+<h2>🔥 Best Seller</h2>
+
+<div class="best-grid">
+
+<div class="card">
+
+<img src="assets/images/bayam.jpg" alt="Bayam Hijau">
+
+<h3>Bayam Hijau</h3>
+
+<p>Terjual 1.500+</p>
+
+</div>
+
+<div class="card">
+
+<img src="assets/images/brokoli.jpg" alt="Brokoli">
+
+<h3>Brokoli</h3>
+
+<p>Terjual 980+</p>
+
+</div>
+
+<div class="card">
+
+<img src="assets/images/wortel.jpg" alt="Wortel">
+
+<h3>Wortel</h3>
+
+<p>Terjual 2.300+</p>
+
+</div>
+</section>
+
+<!-- ================= PROMO ================= -->
+
+<section id="promo" class="promo">
+
+<h2>🎉 Promo Hari Ini</h2>
+
+<div class="promo-box">
+
+<h3>Diskon 20%</h3>
+
+<p>
+Minimal belanja Rp100.000
+</p>
+
+</div>
+
+<div class="promo-box">
+
+<h3>Gratis Ongkir</h3>
+
+<p>
+Wilayah Yogyakarta
+</p>
+
+</div>
+
+<div class="promo-box">
+
+<h3>Cashback</h3>
+
+<p>
+Hingga Rp20.000
+</p>
+
+</div>
+</section>
+
+    <section id="testimoni">
+
+<h2>⭐ Testimoni Pelanggan</h2>
+
+<div class="card">
+
+⭐⭐⭐⭐⭐
+
+<p>
+
+"Sayurnya segar dan pengiriman cepat."
+
+</p>
+
+<b>- Rina</b>
+
+</div>
+
+<div class="card">
+
+⭐⭐⭐⭐⭐
+
+<p>
+
+"Harga murah, kualitas bagus."
+
+</p>
+
+<b>- Dedi</b>
+
+</div>
+
+</section>
+<!-- ================= TENTANG ================= -->
+
+<section class="about">
+
+<h2>🥬 Tentang AirLiana Veggies</h2>
+
+<p>
+AirLiana Veggies menyediakan berbagai sayuran segar, higienis, dan berkualitas langsung dari petani lokal. Kami berkomitmen memberikan produk terbaik dengan harga terjangkau serta pengiriman cepat ke pelanggan.
+</p>
+
+</section>
+
+<!-- ================= KONTAK ================= -->
+
+<section class="kontak">
+
+<h2>📞 Hubungi Kami</h2>
+
+<p>📍 Yogyakarta, Indonesia</p>
+
+<p>📱 WhatsApp : 085780620013</p>
+
+<p>📧 Email : airlianaveggies@gmail.com</p>
+
+<p>🕘 Senin - Minggu (07.00 - 20.00 WIB)</p>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<h3>AirLiana Veggies</h3>
+
+<p>Sayuran Segar • Higienis • Berkualitas</p>
+
+<p>📍 Yogyakarta, Indonesia</p>
+
+<p>📞 WhatsApp : 085780620013</p>
+
+<p>📧 Email : airlianaveggies@gmail.com</p>
+
+<p>📷 Instagram : @airlianaveggies</p>
+
+<p>📘 Facebook : AirLiana Veggies</p>
+
+<p>🎵 TikTok : @airlianaveggies</p>
+
+<p>🕘 Senin - Minggu (07.00 - 20.00 WIB)</p>
+
+<p>© 2026 AirLiana Veggies. All Rights Reserved.</p>
+
+</footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
-<section>
-    <h2 style="text-align:center;">Produk Unggulan</h2>
 
-    <div style="display:flex; justify-content:center; gap:20px;">
-        <div>
-            <h3>Bayam</h3>
-            <p>Rp 5.000</p>
-        </div>
-
-        <div>
-            <h3>Kangkung</h3>
-            <p>Rp 4.000</p>
-        </div>
-
-        <div>
-            <h3>Selada</h3>
-            <p>Rp 6.000</p>
-        </div>
-    </div>
-</section> 
