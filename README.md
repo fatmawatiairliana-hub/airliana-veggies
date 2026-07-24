@@ -20,7 +20,7 @@ Website sederhana toko sayur segar dengan tampilan modern.
 2. Atau upload ke Netlify / GitHub Pages
 
 ## 📞 Kontak
-WhatsApp: 081234567890
+WhatsApp: 085780620013
 
 ---
 
