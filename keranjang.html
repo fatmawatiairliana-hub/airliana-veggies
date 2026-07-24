@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Keranjang | AirLiana Veggies</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -16,60 +19,72 @@
 </div>
 
 <nav>
+
 <a href="index.html">🏠 Beranda</a>
+
 <a href="index.html#produk">🛒 Produk</a>
+
 <a href="keranjang.html">🛍 Keranjang</a>
+
 <a href="kontak.html">📞 Kontak</a>
+
 </nav>
 
 </header>
 
 <section class="hero">
+
 <h1>🛍 Keranjang Belanja</h1>
+
 <p>Daftar produk yang siap Anda checkout.</p>
+
 </section>
 
-<section>
+<section class="keranjang">
 
 <h2 align="center">Produk Pilihan</h2>
 
-<table border="1" cellpadding="12" cellspacing="0" width="80%" align="center">
+<table border="1" cellpadding="12" cellspacing="0" width="90%" align="center">
+
+<thead>
 
 <tr bgcolor="#4CAF50" style="color:white;">
+
 <th>Produk</th>
-<th>Jumlah</th>
+
 <th>Harga</th>
+
+<th>Jumlah</th>
+
+<th>Total</th>
+
+<th>Aksi</th>
+
 </tr>
 
-<tr>
-<td>Bayam Hijau</td>
-<td>2</td>
-<td>Rp14.000</td>
-</tr>
+</thead>
 
-<tr>
-<td>Wortel</td>
-<td>1</td>
-<td>Rp15.000</td>
-</tr>
+<tbody id="isiKeranjang">
 
-<tr>
-<td>Tomat</td>
-<td>1</td>
-<td>Rp10.000</td>
-</tr>
+</tbody>
 
 </table>
 
-<div style="text-align:center;margin-top:30px;">
+<div class="ringkasan" style="text-align:center;margin-top:30px;">
 
-<h3>Subtotal : Rp39.000</h3>
+<h3 id="subtotal">
+Subtotal : Rp0
+</h3>
 
-<h3>Ongkos Kirim : Rp10.000</h3>
+<h3 id="ongkir">
+Ongkos Kirim : Rp0
+</h3>
 
-<h2>Total : Rp49.000</h2>
+<h2 id="grandTotal">
+Grand Total : Rp0
+</h2>
 
-<button class="btn">
+<button class="btn" onclick="checkout()">
 Checkout
 </button>
 
@@ -79,13 +94,20 @@ Checkout
 
 <footer>
 
-<h3>AirLiana Veggies</h3>
+<h3>🥬 AirLiana Veggies</h3>
 
-<p>🥬 Sayuran Segar • Higienis • Berkualitas</p>
+<p>Sayuran Segar • Higienis • Berkualitas</p>
+
+<p>📍 Yogyakarta</p>
+
+<p>📞 085780620013</p>
 
 <p>© 2026 AirLiana Veggies</p>
 
 </footer>
 
+<script src="script.js"></script>
+
 </body>
+
 </html>
