@@ -1,33 +1,417 @@
-/* Tema Warna */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-Primary : #2E7D32
-Secondary : #4CAF50
-Background : #F5F5F5
-Text : #333333
 
-Font :
-Poppins
+body{
 
-Card :
-Border Radius 15px
-Shadow
-Hover Effect
+font-family:'Poppins',sans-serif;
 
-Button :
-Hijau
-Hover Hijau Tua
+background:#F5F5F5;
 
-Navbar :
-Sticky
-Background Putih
+color:#333;
 
-Produk :
-Grid 4 Kolom
+}
 
-Banner :
-Full Width
-Border Radius 20px
 
-Footer :
-Hijau Tua
-Tulisan Putih
+
+.navbar{
+
+position:sticky;
+
+top:0;
+
+z-index:999;
+
+background:white;
+
+padding:15px 5%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+box-shadow:0 3px 15px rgba(0,0,0,.1);
+
+}
+
+
+.logo{
+
+font-size:22px;
+
+font-weight:700;
+
+color:#2E7D32;
+
+}
+
+
+
+nav a{
+
+text-decoration:none;
+
+margin:0 8px;
+
+color:#333;
+
+font-size:14px;
+
+}
+
+
+nav a:hover{
+
+color:#2E7D32;
+
+}
+
+
+
+.search input{
+
+padding:10px;
+
+border-radius:20px;
+
+border:1px solid #ddd;
+
+}
+
+
+
+
+/* HERO */
+
+.hero{
+
+width:90%;
+
+margin:40px auto;
+
+padding:70px 50px;
+
+background:#4CAF50;
+
+border-radius:20px;
+
+color:white;
+
+text-align:center;
+
+}
+
+
+
+.hero h1{
+
+font-size:40px;
+
+}
+
+
+
+.btn{
+
+display:inline-block;
+
+margin-top:25px;
+
+background:white;
+
+color:#2E7D32;
+
+padding:12px 30px;
+
+border-radius:30px;
+
+text-decoration:none;
+
+font-weight:600;
+
+}
+
+
+
+.btn:hover{
+
+background:#1B5E20;
+
+color:white;
+
+}
+
+
+
+/* SECTION */
+
+section{
+
+width:90%;
+
+margin:50px auto;
+
+}
+
+
+h2{
+
+text-align:center;
+
+margin-bottom:30px;
+
+color:#2E7D32;
+
+}
+
+
+
+
+/* KATEGORI */
+
+
+.kategori-grid{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:20px;
+
+}
+
+
+.kategori-grid div{
+
+background:white;
+
+padding:25px;
+
+border-radius:15px;
+
+text-align:center;
+
+box-shadow:0 5px 15px #ddd;
+
+transition:.3s;
+
+}
+
+
+
+.kategori-grid div:hover{
+
+transform:translateY(-5px);
+
+}
+
+
+
+
+/* PRODUK */
+
+.produk-grid{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:25px;
+
+}
+
+
+
+.card{
+
+background:white;
+
+padding:20px;
+
+border-radius:15px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-8px);
+
+}
+
+
+
+.card img{
+
+width:100%;
+
+height:180px;
+
+object-fit:cover;
+
+border-radius:12px;
+
+}
+
+
+
+.card h3{
+
+color:#2E7D32;
+
+margin:15px 0;
+
+}
+
+
+
+.card button{
+
+margin-top:15px;
+
+width:100%;
+
+padding:12px;
+
+border:none;
+
+border-radius:25px;
+
+background:#4CAF50;
+
+color:white;
+
+cursor:pointer;
+
+}
+
+
+
+.card button:hover{
+
+background:#2E7D32;
+
+}
+
+
+
+
+/* BEST SELLER */
+
+
+.best-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:25px;
+
+}
+
+
+
+/* PROMO */
+
+
+.promo{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:20px;
+
+}
+
+
+
+.promo-box{
+
+background:#4CAF50;
+
+color:white;
+
+padding:30px;
+
+border-radius:20px;
+
+text-align:center;
+
+}
+
+
+
+
+/* TESTIMONI */
+
+#testimoni{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:20px;
+
+}
+
+
+
+
+/* FOOTER */
+
+footer{
+
+background:#1B5E20;
+
+color:white;
+
+padding:40px;
+
+text-align:center;
+
+}
+
+
+
+
+@media(max-width:900px){
+
+.produk-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.kategori-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+
+
+@media(max-width:500px){
+
+.produk-grid,
+.kategori-grid,
+.promo,
+.best-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
