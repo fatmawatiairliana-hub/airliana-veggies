@@ -1,111 +1,33 @@
-body {
-    font-family: sans-serif;
-    background: #f1f8e9;
-    margin: 0;
-}
+/* Tema Warna */
 
-nav {
-    background: #2e7d32;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    padding: 15px;
-}
+Primary : #2E7D32
+Secondary : #4CAF50
+Background : #F5F5F5
+Text : #333333
 
-nav a {
-    color: white;
-    margin-left: 15px;
-    text-decoration: none;
-}
+Font :
+Poppins
 
-.hero {
-    text-align: center;
-    padding: 100px;
-    background: url('https://source.unsplash.com/1200x500/?vegetables') no-repeat center;
-    color: white;
-}
+Card :
+Border Radius 15px
+Shadow
+Hover Effect
 
-.btn {
-    background: #66bb6a;
-    padding: 10px 20px;
-    color: white;
-    text-decoration: none;
-}
+Button :
+Hijau
+Hover Hijau Tua
 
-.produk {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-}
+Navbar :
+Sticky
+Background Putih
 
-.card {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-}
-.item {
-    background: white;
-    padding: 15px;
-    margin: 10px;
-    border-radius: 12px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-}
+Produk :
+Grid 4 Kolom
 
-.qty {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin: 10px 0;
-}
+Banner :
+Full Width
+Border Radius 20px
 
-.qty button {
-    padding: 5px 10px;
-    border: none;
-    background: #2e7d32;
-    color: white;
-    border-radius: 5px;
-}
-body {
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    background: #f1f8e9;
-}
-
-/* NAVBAR */
-nav {
-    background: #2e7d32;
-    color: white;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav h2 {
-    margin: 0;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 500;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* HERO */
-.hero {
-    text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(to right, #66bb6a, #43a047);
-    color: white;
-}
-
-.hero h1 {
-    font-size: 36px;
-}
+Footer :
+Hijau Tua
+Tulisan Putih
