@@ -835,4 +835,45 @@ function kosongkanKeranjang(){
 
 }
 
+// ================================
+// DARK MODE
+// ================================
+
+document.addEventListener("DOMContentLoaded",function(){
+
+const tombol=document.getElementById("darkModeBtn");
+
+if(!tombol) return;
+
+// cek mode yang tersimpan
+if(localStorage.getItem("mode")=="dark"){
+
+document.body.classList.add("dark");
+
+tombol.innerHTML="☀";
+
+}
+
+tombol.onclick=function(){
+
+document.body.classList.toggle("dark");
+
+if(document.body.classList.contains("dark")){
+
+localStorage.setItem("mode","dark");
+
+tombol.innerHTML="☀";
+
+}else{
+
+localStorage.setItem("mode","light");
+
+tombol.innerHTML="🌙";
+
+}
+
+}
+
+});
+
 console.log("✅ AirLiana Veggies Script Loaded");
