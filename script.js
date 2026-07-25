@@ -597,6 +597,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 }
 
+                else if(pilih.includes("cabai")){
+
+                  tampil =
+                  nama.includes("cabai");
+
+                }
+
+                else if(pilih.includes("bumbu")){
+
+                   tampil =
+                   nama.includes("bawang");
+
+                 }
+
+                else if(pilih.includes("jamur")){
+
+                   tampil =
+                   nama.includes("jamur");
+
+                 }
+
+               else if(pilih.includes("paket")){
+
+                   tampil = false;
+
+                }
+
                 card.style.display = tampil ? "" : "none";
 
             });
