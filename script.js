@@ -152,19 +152,45 @@ function hapusProduk(index){
 // ================================
 function checkout(){
 
-    if(keranjang.length==0){
+  function checkout() {
 
+    if (keranjang.length === 0) {
         alert("Keranjang masih kosong!");
-
         return;
-
     }
 
-    alert("🎉 Terima kasih telah berbelanja di AirLiana Veggies.");
+    let pesan = "Halo AirLiana Veggies,%0A%0ASaya ingin memesan:%0A";
 
-    keranjang=[];
+    let subtotal = 0;
 
-    simpanKeranjang();
+    keranjang.forEach(item => {
+
+        let total = item.harga * item.jumlah;
+        subtotal += total;
+
+        pesan +=
+        "- " + item.nama +
+        " x" + item.jumlah +
+        " = Rp" + total.toLocaleString("id-ID") +
+        "%0A";
+
+    });
+
+    let ongkir = subtotal >= 50000 ? 0 : 10000;
+    let grandTotal = subtotal + ongkir;
+
+    pesan += "%0A";
+    pesan += "Subtotal : Rp" + subtotal.toLocaleString("id-ID") + "%0A";
+    pesan += "Ongkir : Rp" + ongkir.toLocaleString("id-ID") + "%0A";
+    pesan += "Total : Rp" + grandTotal.toLocaleString("id-ID") + "%0A%0A";
+    pesan += "Nama : %0A";
+    pesan += "Alamat : %0A";
+    pesan += "Terima kasih.";
+
+    window.open(
+        "https://wa.me/6285780620013?text=" + pesan,
+        "_blank"
+    );
 
 }
 
