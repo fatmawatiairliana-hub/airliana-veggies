@@ -218,7 +218,13 @@ function tampilKeranjang(){
 
 <tr>
 
-<td>${item.nama}</td>
+<td>
+
+<b>${item.nama}</b>
+
+${item.isi ? "<br><small>"+item.isi+"</small>" : ""}
+
+</td>
 
 <td>Rp${item.harga.toLocaleString("id-ID")}</td>
 
