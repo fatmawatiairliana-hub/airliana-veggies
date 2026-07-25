@@ -180,21 +180,19 @@ const search = document.getElementById("search");
 
 if (search) {
 
-    search.addEventListener("keyup", function () {
+    search.addEventListener("input", function () {
 
-        let keyword = this.value.toLowerCase();
+        let keyword = this.value.toLowerCase().trim();
 
-        const produk = document.querySelectorAll(".produk");
+        document.querySelectorAll(".produk").forEach(function(item){
 
-        produk.forEach(function (item) {
+            let nama = item.querySelector("h3").textContent.toLowerCase();
 
-            let nama = item.querySelector("h3").innerText.toLowerCase();
+            if(nama.includes(keyword)){
 
-            if (nama.includes(keyword)) {
+                item.style.display = "";
 
-                item.style.display = "block";
-
-            } else {
+            }else{
 
                 item.style.display = "none";
 
