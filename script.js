@@ -1,124 +1,293 @@
-// ================================
+// ==========================================
 // AIRLIANA VEGGIES
+// SCRIPT.JS FINAL
+// BAGIAN 1
+// ==========================================
+
+// ================================
+// DATA KERANJANG
 // ================================
 
-// Ambil data keranjang
 let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+
+
+// ================================
+// SIMPAN KE LOCAL STORAGE
+// ================================
+
+function simpanKeranjang() {
+
+    localStorage.setItem(
+        "keranjang",
+        JSON.stringify(keranjang)
+    );
+
+    updateBadge();
+
+}
+
+
+// ================================
+// UPDATE BADGE KERANJANG
+// ================================
+
+function updateBadge() {
+
+    const badge = document.getElementById("badgeKeranjang");
+
+    if (!badge) return;
+
+    let jumlah = 0;
+
+    keranjang.forEach(function(item){
+
+        jumlah += item.jumlah;
+
+    });
+
+    badge.textContent = jumlah;
+
+    if(jumlah === 0){
+
+        badge.style.display = "none";
+
+    }else{
+
+        badge.style.display = "inline-block";
+
+    }
+
+}
+
+
+// ================================
+// NOTIFIKASI
+// ================================
+
+function tampilNotifikasi(pesan){
+
+    let notif = document.getElementById("notifProduk");
+
+    if(notif){
+
+        notif.remove();
+
+    }
+
+    notif = document.createElement("div");
+
+    notif.id = "notifProduk";
+
+    notif.innerHTML = pesan;
+
+    notif.style.position = "fixed";
+
+    notif.style.top = "20px";
+
+    notif.style.right = "20px";
+
+    notif.style.background = "#4CAF50";
+
+    notif.style.color = "#fff";
+
+    notif.style.padding = "12px 18px";
+
+    notif.style.borderRadius = "10px";
+
+    notif.style.boxShadow = "0 5px 15px rgba(0,0,0,.25)";
+
+    notif.style.zIndex = "9999";
+
+    document.body.appendChild(notif);
+
+    setTimeout(function(){
+
+        notif.remove();
+
+    },2500);
+
+}
+
+
 
 // ================================
 // TAMBAH KE KERANJANG
 // ================================
-function tambahKeranjang(nama, harga) {
 
-    let produk = keranjang.find(item => item.nama === nama);
+function tambahKeranjang(nama,harga){
 
-    if (produk) {
+    let produk = keranjang.find(function(item){
+
+        return item.nama === nama;
+
+    });
+
+    if(produk){
+
         produk.jumlah++;
-    } else {
+
+    }else{
+
         keranjang.push({
-            nama: nama,
-            harga: harga,
-            jumlah: 1
+
+            nama:nama,
+
+            harga:harga,
+
+            jumlah:1
+
         });
+
     }
 
     simpanKeranjang();
 
-    alert("✅ " + nama + " berhasil ditambahkan!");
-}
-
-// ================================
-// SIMPAN
-// ================================
-function simpanKeranjang() {
-
-    localStorage.setItem("keranjang", JSON.stringify(keranjang));
-
-    tampilKeranjang();
+    tampilNotifikasi("✅ "+nama+" berhasil ditambahkan");
 
 }
 
+
+
 // ================================
+// LOAD HALAMAN
+// ================================
+
+document.addEventListener("DOMContentLoaded",function(){
+
+    updateBadge();
+
+});
+// ==========================================
+// AIRLIANA VEGGIES
+// SCRIPT.JS FINAL
+// BAGIAN 2
 // TAMPILKAN KERANJANG
+// ==========================================
+
+
 // ================================
-function tampilKeranjang() {
+// TAMPILKAN ISI KERANJANG
+// ================================
+
+function tampilKeranjang(){
 
     const isi = document.getElementById("isiKeranjang");
 
-    if (!isi) return;
+    if(!isi) return;
 
     isi.innerHTML = "";
 
     let subtotal = 0;
 
-    keranjang.forEach((item, index) => {
+    keranjang.forEach(function(item,index){
 
         let total = item.harga * item.jumlah;
 
         subtotal += total;
 
         isi.innerHTML += `
-        <tr>
 
-        <td>${item.nama}</td>
+<tr>
 
-        <td>Rp${item.harga.toLocaleString()}</td>
+<td>${item.nama}</td>
 
-        <td>
+<td>Rp${item.harga.toLocaleString("id-ID")}</td>
 
-        <button onclick="kurangJumlah(${index})">-</button>
+<td>
 
-        ${item.jumlah}
+<button onclick="kurangJumlah(${index})">➖</button>
 
-        <button onclick="tambahJumlah(${index})">+</button>
+<span style="margin:0 10px;">
+${item.jumlah}
+</span>
 
-        </td>
+<button onclick="tambahJumlah(${index})">➕</button>
 
-        <td>Rp${total.toLocaleString()}</td>
+</td>
 
-        <td>
+<td>
 
-        <button onclick="hapusProduk(${index})">
-        🗑 Hapus
-        </button>
+Rp${total.toLocaleString("id-ID")}
 
-        </td>
+</td>
 
-        </tr>
-        `;
+<td>
+
+<button onclick="hapusProduk(${index})">
+
+🗑 Hapus
+
+</button>
+
+</td>
+
+</tr>
+
+`;
 
     });
 
-    let ongkir = subtotal >= 50000 ? 0 : 10000;
+    const ongkir = subtotal >= 50000 ? 0 : 10000;
 
-    document.getElementById("subtotal").innerHTML =
-    "Subtotal : Rp" + subtotal.toLocaleString();
+    const grandTotal = subtotal + ongkir;
 
-    document.getElementById("ongkir").innerHTML =
-    "Ongkos Kirim : Rp" + ongkir.toLocaleString();
+    const sub = document.getElementById("subtotal");
 
-    document.getElementById("grandTotal").innerHTML =
-    "Grand Total : Rp" + (subtotal + ongkir).toLocaleString();
+    const ong = document.getElementById("ongkir");
+
+    const grand = document.getElementById("grandTotal");
+
+    if(sub){
+
+        sub.innerHTML =
+        "Subtotal : Rp" +
+        subtotal.toLocaleString("id-ID");
+
+    }
+
+    if(ong){
+
+        ong.innerHTML =
+        "Ongkir : Rp" +
+        ongkir.toLocaleString("id-ID");
+
+    }
+
+    if(grand){
+
+        grand.innerHTML =
+        "Grand Total : Rp" +
+        grandTotal.toLocaleString("id-ID");
+
+    }
 
 }
+
+
 
 // ================================
 // TAMBAH JUMLAH
 // ================================
+
 function tambahJumlah(index){
 
     keranjang[index].jumlah++;
 
     simpanKeranjang();
 
+    tampilKeranjang();
+
 }
+
+
 
 // ================================
 // KURANG JUMLAH
 // ================================
+
 function kurangJumlah(index){
 
-    if(keranjang[index].jumlah > 1){
+    if(keranjang[index].jumlah>1){
 
         keranjang[index].jumlah--;
 
@@ -130,11 +299,16 @@ function kurangJumlah(index){
 
     simpanKeranjang();
 
+    tampilKeranjang();
+
 }
+
+
 
 // ================================
 // HAPUS PRODUK
 // ================================
+
 function hapusProduk(index){
 
     if(confirm("Hapus produk ini?")){
@@ -143,49 +317,181 @@ function hapusProduk(index){
 
         simpanKeranjang();
 
+        tampilKeranjang();
+
+        tampilNotifikasi("🗑 Produk dihapus");
+
     }
 
 }
 
+
+
 // ================================
-// CHECKOUT
+// LOAD HALAMAN
 // ================================
-function checkout(){
 
-  function checkout() {
+document.addEventListener("DOMContentLoaded",function(){
 
-    if (keranjang.length === 0) {
-        alert("Keranjang masih kosong!");
-        return;
-    }
+    updateBadge();
 
-    let pesan = "Halo AirLiana Veggies,%0A%0ASaya ingin memesan:%0A";
+    tampilKeranjang();
+
+});
+// ==========================================
+// AIRLIANA VEGGIES
+// SCRIPT.JS FINAL
+// BAGIAN 3
+// SEARCH + CHECKOUT WHATSAPP
+// ==========================================
+
+
+// ================================
+// SEARCH PRODUK
+// ================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const search = document.getElementById("search");
+
+    if (!search) return;
+
+    search.addEventListener("input", function () {
+
+        const keyword = this.value.toLowerCase().trim();
+
+        const semuaProduk = document.querySelectorAll(".produk");
+
+        semuaProduk.forEach(function (produk) {
+
+            const nama = produk.querySelector("h3").textContent.toLowerCase();
+
+            if (nama.includes(keyword)) {
+
+                produk.style.display = "";
+
+            } else {
+
+                produk.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+});
+
+
+
+
+// ================================
+// HITUNG SUBTOTAL
+// ================================
+
+function hitungSubtotal() {
 
     let subtotal = 0;
 
-    keranjang.forEach(item => {
+    keranjang.forEach(function(item){
 
-        let total = item.harga * item.jumlah;
-        subtotal += total;
+        subtotal += item.harga * item.jumlah;
+
+    });
+
+    return subtotal;
+
+}
+
+
+
+
+// ================================
+// HITUNG ONGKIR
+// ================================
+
+function hitungOngkir(){
+
+    const subtotal = hitungSubtotal();
+
+    if(subtotal >= 50000){
+
+        return 0;
+
+    }
+
+    return subtotal === 0 ? 0 : 10000;
+
+}
+
+
+
+
+// ================================
+// HITUNG TOTAL
+// ================================
+
+function hitungTotal(){
+
+    return hitungSubtotal() + hitungOngkir();
+
+}
+
+
+
+
+// ================================
+// CHECKOUT WHATSAPP
+// ================================
+
+function checkout(){
+
+    if(keranjang.length===0){
+
+        alert("Keranjang masih kosong!");
+
+        return;
+
+    }
+
+    let pesan = "Halo AirLiana Veggies%0A%0A";
+
+    pesan += "Saya ingin memesan:%0A%0A";
+
+    keranjang.forEach(function(item){
 
         pesan +=
-        "- " + item.nama +
-        " x" + item.jumlah +
-        " = Rp" + total.toLocaleString("id-ID") +
+        "• " +
+        item.nama +
+        " x" +
+        item.jumlah +
+        " = Rp" +
+        (item.harga*item.jumlah).toLocaleString("id-ID") +
         "%0A";
 
     });
 
-    let ongkir = subtotal >= 50000 ? 0 : 10000;
-    let grandTotal = subtotal + ongkir;
-
     pesan += "%0A";
-    pesan += "Subtotal : Rp" + subtotal.toLocaleString("id-ID") + "%0A";
-    pesan += "Ongkir : Rp" + ongkir.toLocaleString("id-ID") + "%0A";
-    pesan += "Total : Rp" + grandTotal.toLocaleString("id-ID") + "%0A%0A";
+
+    pesan +=
+    "Subtotal : Rp" +
+    hitungSubtotal().toLocaleString("id-ID") +
+    "%0A";
+
+    pesan +=
+    "Ongkir : Rp" +
+    hitungOngkir().toLocaleString("id-ID") +
+    "%0A";
+
+    pesan +=
+    "Total : Rp" +
+    hitungTotal().toLocaleString("id-ID") +
+    "%0A%0A";
+
     pesan += "Nama : %0A";
     pesan += "Alamat : %0A";
-    pesan += "Terima kasih.";
+    pesan += "No. HP : %0A";
+    pesan += "Catatan : %0A";
 
     window.open(
         "https://wa.me/6285780620013?text=" + pesan,
@@ -193,109 +499,72 @@ function checkout(){
     );
 
 }
+// ==========================================
+// AIRLIANA VEGGIES
+// SCRIPT.JS FINAL
+// BAGIAN 4
+// FILTER + POPUP + FLASH SALE
+// ==========================================
 
-// ================================
-// LOAD HALAMAN
-// ================================
-document.addEventListener("DOMContentLoaded", tampilKeranjang);
-// ================================
-// SEARCH PRODUK
-// ================================
-
-const search = document.getElementById("search");
-
-if (search) {
-
-    search.addEventListener("input", function () {
-
-        let keyword = this.value.toLowerCase().trim();
-
-        document.querySelectorAll(".produk").forEach(function(item){
-
-            let nama = item.querySelector("h3").textContent.toLowerCase();
-
-            if(nama.includes(keyword)){
-
-                item.style.display = "";
-
-            }else{
-
-                item.style.display = "none";
-
-            }
-
-        });
-
-    });
-
-}
 
 
 // ================================
 // FILTER KATEGORI
 // ================================
 
-const kategori = document.querySelectorAll(".kategori-grid div");
+document.addEventListener("DOMContentLoaded", function () {
 
-kategori.forEach(function(btn){
+    const kategori = document.querySelectorAll(".kategori-grid div");
 
-    btn.addEventListener("click",function(){
+    if (kategori.length === 0) return;
 
-        let pilih = this.innerText.toLowerCase();
+    kategori.forEach(function(item){
 
-        const produk = document.querySelectorAll(".produk");
+        item.addEventListener("click", function(){
 
-        produk.forEach(function(item){
+            let pilih = this.innerText.toLowerCase();
 
-            let nama = item.querySelector("h3").innerText.toLowerCase();
+            document.querySelectorAll(".produk").forEach(function(card){
 
-            if(
-                pilih.includes("daun") &&
-                (
+                let nama = card.querySelector("h3").innerText.toLowerCase();
+
+                let tampil = true;
+
+                if(pilih.includes("daun")){
+
+                    tampil =
                     nama.includes("bayam") ||
                     nama.includes("kangkung") ||
+                    nama.includes("pakcoy") ||
                     nama.includes("sawi") ||
-                    nama.includes("selada") ||
-                    nama.includes("pakcoy")
-                )
-            ){
+                    nama.includes("selada");
 
-                item.style.display="block";
+                }
 
-            }
+                else if(pilih.includes("umbi")){
 
-            else if(
-                pilih.includes("umbi") &&
-                nama.includes("wortel")
-            ){
+                    tampil =
+                    nama.includes("wortel");
 
-                item.style.display="block";
+                }
 
-            }
+                else if(pilih.includes("brokoli")){
 
-            else if(
-                pilih.includes("brokoli") &&
-                nama.includes("brokoli")
-            ){
+                    tampil =
+                    nama.includes("brokoli");
 
-                item.style.display="block";
+                }
 
-            }
+                else if(pilih.includes("buah")){
 
-            else if(
-                pilih.includes("buah") &&
-                nama.includes("tomat")
-            ){
+                    tampil =
+                    nama.includes("tomat");
 
-                item.style.display="block";
+                }
 
-            }
+                card.style.display = tampil ? "" : "none";
 
-            else{
-
-                item.style.display="none";
-
-            }
+            });
 
         });
 
@@ -304,374 +573,209 @@ kategori.forEach(function(btn){
 });
 
 
-// ================================
-// RESET FILTER
-// ================================
-
-const logo=document.querySelector(".logo");
-
-if(logo){
-
-logo.addEventListener("click",function(){
-
-document.querySelectorAll(".produk").forEach(function(item){
-
-item.style.display="block";
-
-});
-
-});
-
-}
-
-
-// ================================
-// NOTIFIKASI
-// ================================
-
-function tampilNotifikasi(teks){
-
-const notif=document.createElement("div");
-
-notif.innerHTML=teks;
-
-notif.style.position="fixed";
-
-notif.style.top="20px";
-
-notif.style.right="20px";
-
-notif.style.background="#4CAF50";
-
-notif.style.color="white";
-
-notif.style.padding="15px";
-
-notif.style.borderRadius="10px";
-
-notif.style.zIndex="9999";
-
-notif.style.boxShadow="0 5px 15px rgba(0,0,0,.2)";
-
-document.body.appendChild(notif);
-
-setTimeout(function(){
-
-notif.remove();
-
-},2500);
-
-}
-
-
-// ================================
-// GANTI ALERT TAMBAH KERANJANG
-// ================================
-
-function tambahKeranjang(nama,harga){
-
-let produk=keranjang.find(item=>item.nama===nama);
-
-if(produk){
-
-produk.jumlah++;
-
-}else{
-
-keranjang.push({
-
-nama:nama,
-
-harga:harga,
-
-jumlah:1
-
-});
-
-}
-
-simpanKeranjang();
-
-tampilNotifikasi("✅ "+nama+" berhasil ditambahkan");
-
-}
-
 
 // ================================
 // POPUP PROMO
 // ================================
 
-window.addEventListener("load",function(){
+window.addEventListener("load", function(){
 
-setTimeout(function(){
+    if(sessionStorage.getItem("promoSudah")) return;
 
-if(!sessionStorage.getItem("promo")){
+    setTimeout(function(){
 
-alert("🎉 PROMO HARI INI\n\nDiskon 20% minimal belanja Rp100.000");
+        alert(
+            "🎉 PROMO HARI INI\n\n" +
+            "✅ Diskon 20%\n" +
+            "✅ Gratis Ongkir Yogyakarta\n" +
+            "✅ Cashback hingga Rp20.000"
+        );
 
-sessionStorage.setItem("promo","sudah");
+        sessionStorage.setItem("promoSudah","ya");
 
-}
-
-},1500);
+    },2000);
 
 });
 
-// ===========================================
-// AIRLIANA VEGGIES - BAGIAN 3
-// Flash Sale • Scroll To Top • Badge Keranjang
-// Responsive Menu • Rating Produk
-// ===========================================
 
 
-// ===============================
+
+// ================================
 // FLASH SALE COUNTDOWN
-// ===============================
-
-const flashSale = document.getElementById("countdown");
-
-if (flashSale) {
+// ================================
 
 let waktu = 7200;
 
-setInterval(() => {
+const countdown = setInterval(function(){
 
-let jam = Math.floor(waktu / 3600);
+    const jam = Math.floor(waktu/3600);
 
-let menit = Math.floor((waktu % 3600) / 60);
+    const menit = Math.floor((waktu%3600)/60);
 
-let detik = waktu % 60;
+    const detik = waktu%60;
 
-flashSale.innerHTML =
-`${jam.toString().padStart(2,"0")} :
-${menit.toString().padStart(2,"0")} :
-${detik.toString().padStart(2,"0")}`;
+    const teks =
+    String(jam).padStart(2,"0")+":"+
+    String(menit).padStart(2,"0")+":"+
+    String(detik).padStart(2,"0");
 
-if(waktu>0){
+    const timer = document.getElementById("countdown");
 
-waktu--;
+    if(timer){
 
-}else{
+        timer.innerHTML = teks;
 
-flashSale.innerHTML="FLASH SALE BERAKHIR";
+    }
 
-}
+    if(waktu<=0){
+
+        clearInterval(countdown);
+
+        if(timer){
+
+            timer.innerHTML="FLASH SALE BERAKHIR";
+
+        }
+
+    }
+
+    waktu--;
 
 },1000);
+// ==========================================
+// AIRLIANA VEGGIES
+// SCRIPT.JS FINAL
+// BAGIAN 5
+// SCROLL TOP + MENU + LOAD
+// ==========================================
 
-}
 
 
-
-// ===============================
+// ================================
 // SCROLL TO TOP
-// ===============================
+// ================================
 
-const tombol=document.createElement("button");
+const tombolAtas = document.createElement("button");
 
-tombol.innerHTML="⬆";
+tombolAtas.innerHTML = "⬆";
 
-tombol.id="scrollTop";
+tombolAtas.id = "scrollTop";
 
-document.body.appendChild(tombol);
+tombolAtas.style.position = "fixed";
+tombolAtas.style.bottom = "20px";
+tombolAtas.style.right = "20px";
+tombolAtas.style.width = "50px";
+tombolAtas.style.height = "50px";
+tombolAtas.style.border = "none";
+tombolAtas.style.borderRadius = "50%";
+tombolAtas.style.background = "#4CAF50";
+tombolAtas.style.color = "white";
+tombolAtas.style.fontSize = "20px";
+tombolAtas.style.cursor = "pointer";
+tombolAtas.style.display = "none";
+tombolAtas.style.zIndex = "999";
 
-tombol.style.position="fixed";
-tombol.style.bottom="25px";
-tombol.style.right="25px";
-tombol.style.display="none";
-tombol.style.padding="12px";
-tombol.style.borderRadius="50%";
-tombol.style.border="none";
-tombol.style.cursor="pointer";
-tombol.style.background="#4CAF50";
-tombol.style.color="white";
-tombol.style.fontSize="18px";
-tombol.style.boxShadow="0 5px 15px rgba(0,0,0,.3)";
-tombol.style.zIndex="9999";
+document.body.appendChild(tombolAtas);
 
-window.addEventListener("scroll",()=>{
 
-if(window.scrollY>300){
 
-tombol.style.display="block";
+window.addEventListener("scroll", function(){
 
-}else{
+    if(window.scrollY > 300){
 
-tombol.style.display="none";
+        tombolAtas.style.display = "block";
 
-}
+    }else{
 
-});
+        tombolAtas.style.display = "none";
 
-tombol.onclick=()=>{
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
+    }
 
 });
 
-};
 
 
+tombolAtas.addEventListener("click", function(){
 
+    window.scrollTo({
 
-// ===============================
-// BADGE JUMLAH KERANJANG
-// ===============================
+        top:0,
 
-function updateBadge(){
+        behavior:"smooth"
 
-const link=document.querySelector('a[href="keranjang.html"]');
-
-if(!link) return;
-
-let total=0;
-
-keranjang.forEach(item=>{
-
-total+=item.jumlah;
+    });
 
 });
 
-let badge=document.getElementById("badgeKeranjang");
-
-if(!badge){
-
-badge=document.createElement("span");
-
-badge.id="badgeKeranjang";
-
-badge.style.background="red";
-
-badge.style.color="white";
-
-badge.style.padding="2px 8px";
-
-badge.style.borderRadius="20px";
-
-badge.style.marginLeft="6px";
-
-badge.style.fontSize="12px";
-
-link.appendChild(badge);
-
-}
-
-badge.innerHTML=total;
-
-}
-
-updateBadge();
 
 
 
-
-// ===============================
+// ================================
 // RESPONSIVE MENU
-// ===============================
+// ================================
 
-const nav=document.querySelector("nav");
+document.addEventListener("DOMContentLoaded",function(){
 
-if(nav){
+    const tombol = document.querySelector(".menu-toggle");
 
-const menu=document.createElement("button");
+    const nav = document.querySelector("nav");
 
-menu.innerHTML="☰";
+    if(!tombol || !nav) return;
 
-menu.className="menu-toggle";
+    tombol.addEventListener("click",function(){
 
-menu.style.display="none";
+        nav.classList.toggle("active");
 
-document.querySelector(".navbar").prepend(menu);
-
-function cekUkuran(){
-
-if(window.innerWidth<768){
-
-menu.style.display="block";
-
-nav.style.display="none";
-
-}else{
-
-menu.style.display="none";
-
-nav.style.display="flex";
-
-}
-
-}
-
-cekUkuran();
-
-window.addEventListener("resize",cekUkuran);
-
-menu.onclick=function(){
-
-if(nav.style.display==="none"){
-
-nav.style.display="flex";
-
-nav.style.flexDirection="column";
-
-}else{
-
-nav.style.display="none";
-
-}
-
-};
-
-}
-
-
-
-
-// ===============================
-// RATING PRODUK
-// ===============================
-
-document.querySelectorAll(".card").forEach(card=>{
-
-let rating=card.querySelector("p");
-
-if(rating && rating.innerHTML.includes("⭐⭐⭐⭐⭐")){
-
-rating.innerHTML="⭐⭐⭐⭐⭐ (4.9 / 5)";
-
-}
+    });
 
 });
 
 
 
 
-// ===============================
-// UPDATE BADGE SETIAP PERUBAHAN
-// ===============================
+// ================================
+// EFEK TOMBOL PRODUK
+// ================================
 
-const simpanLama=simpanKeranjang;
+document.addEventListener("DOMContentLoaded",function(){
 
-simpanKeranjang=function(){
+    document.querySelectorAll(".produk button").forEach(function(btn){
 
-simpanLama();
+        btn.addEventListener("mouseenter",function(){
 
-updateBadge();
+            this.style.transform="scale(1.05)";
 
-};
+        });
 
+        btn.addEventListener("mouseleave",function(){
 
+            this.style.transform="scale(1)";
 
+        });
 
-// ===============================
-// PESAN SELAMAT DATANG
-// ===============================
-
-window.addEventListener("load",()=>{
-
-console.log("AirLiana Veggies Siap Digunakan 🌿");
+    });
 
 });
+
+
+
+
+// ================================
+// LOAD SEMUA
+// ================================
+
+document.addEventListener("DOMContentLoaded",function(){
+
+    updateBadge();
+
+    if(document.getElementById("isiKeranjang")){
+
+        tampilKeranjang();
+
+    }
+
+});
+
+
+
+console.log("✅ AirLiana Veggies Script Loaded");
