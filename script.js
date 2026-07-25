@@ -145,7 +145,36 @@ function tambahKeranjang(nama,harga){
     tampilNotifikasi("✅ "+nama+" berhasil ditambahkan");
 
 }
+function tambahPaket(nama,harga,isi){
 
+    let produk = keranjang.find(function(item){
+
+        return item.nama === nama;
+
+    });
+
+    if(produk){
+
+        produk.jumlah++;
+
+    }else{
+
+        keranjang.push({
+
+            nama:nama,
+            harga:harga,
+            jumlah:1,
+            isi:isi
+
+        });
+
+    }
+
+    simpanKeranjang();
+
+    tampilNotifikasi("🥗 "+nama+" berhasil ditambahkan");
+
+}
 
 
 // ================================
@@ -776,6 +805,28 @@ document.addEventListener("DOMContentLoaded",function(){
 
 });
 
+function kosongkanKeranjang(){
 
+    if(keranjang.length===0){
+
+        alert("Keranjang sudah kosong.");
+
+        return;
+
+    }
+
+    if(confirm("Yakin ingin mengosongkan keranjang?")){
+
+        keranjang = [];
+
+        simpanKeranjang();
+
+        tampilKeranjang();
+
+        tampilNotifikasi("🗑 Keranjang dikosongkan");
+
+    }
+
+}
 
 console.log("✅ AirLiana Veggies Script Loaded");
