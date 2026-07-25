@@ -415,3 +415,26 @@ grid-template-columns:1fr;
 }
 
 }
+
+
+/* ========================= */
+/* BADGE KERANJANG */
+/* ========================= */
+
+#badgeKeranjang{
+
+background:red;
+
+color:white;
+
+padding:2px 7px;
+
+border-radius:50%;
+
+font-size:12px;
+
+margin-left:5px;
+
+display:none;
+
+}
